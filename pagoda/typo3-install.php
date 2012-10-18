@@ -1,6 +1,6 @@
 <?php
 /*
-	TYPO3 v4.5.20-LTS
+	TYPO3 v4.7.5
 	
 	cURL Installer for Pagoda Box v1.06
 	Copyright 2012 by Martin Zeitler
@@ -8,8 +8,8 @@
 */
 
 /* the environment */
-$fn='blankpackage-4.5.20.zip';
-$src='http://sourceforge.net/projects/typo3/files/TYPO3 Source and Dummy/TYPO3 4.5.20/'.$fn.'/download?use_mirror=superb-dca2';
+$fn='introductionpackage-4.7.5.zip';
+$src='http://sourceforge.net/projects/typo3/files/latest/download?source=files';
 $base_dir = str_replace('/pagoda','', dirname(__FILE__));
 $hostname=$_SERVER['APP_NAME'].'.pagodabox.com';
 $dst=$base_dir.'/pagoda/'.$fn;
@@ -24,9 +24,10 @@ if($zip->open($dst) === TRUE) {
 	$zip->close();
 }
 
-//rename('pagoda/blankpackage-4.5.20/_.htaccess', '.htaccess');
+//unlink('pagoda/introductionpackage-4.7.5/_.htaccess');
+//rename('pagoda/introductionpackage-4.7.5/_.htaccess', '.htaccess');
 
-echo 'TYPO3 v4.5.20 LTS will now be deployed.';
+echo 'TYPO3 v4.7.5 will now be deployed.';
 
 function wget($src, $dst){
 	$fp = fopen($dst, 'w');
