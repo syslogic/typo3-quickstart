@@ -18,7 +18,7 @@ web1:
     - "mv pagoda/introductionpackage-4.7.5/* ./"
   after_deploy:
     - "mv pagoda/localconf.php typo3conf/localconf.php"
-    - "mv pagoda/introduction/* typo3/typo3conf/introduction/"
+    - "mv pagoda/introduction/* typo3conf/introduction/"
     - "touch typo3conf/ENABLE_INSTALL_TOOL"
     - "mkdir fileadmin/_temp_"
 db1:
