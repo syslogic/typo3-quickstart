@@ -1,0 +1,20 @@
+web1:
+  name: typo3
+  document_root: typo3
+  php_extensions:
+    - mysql
+    - curl
+    - zip
+    - gd
+  shared_writable_dirs:
+    - typo3temp/
+    - fileadmin/user_upload/
+    - uploads/
+  after_build:
+    - "php pagoda/typo3-install.php"
+    - "mv pagoda/blankpackage-4.5.20/* ./"
+    - "mv pagoda/loader.php smarty/loader.php"
+    - "rm -R pagoda"
+db1:
+  name: typo3-db
+  type: mysql
