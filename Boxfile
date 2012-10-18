@@ -15,12 +15,12 @@ web1:
     - uploads/
   after_build:
     - "php pagoda/typo3-install.php"
-    - "mv pagoda/introductionpackage-4.7.5/typo3conf/ext/introduction/* pagoda/introduction"
-    - "rm -R pagoda/introductionpackage-4.7.5/typo3conf/ext/introduction"
+    - "mv pagoda/introductionpackage-4.7.5/typo3conf/ext/* pagoda/ext"
+    - "rm -R pagoda/introductionpackage-4.7.5/typo3conf/ext"
     - "mv pagoda/introductionpackage-4.7.5/* ./"
   after_deploy:
     - "cp pagoda/localconf.php typo3conf/localconf.php"
-    - "mkdir typo3conf/ext/introduction; cp -r pagoda/introduction/* typo3conf/ext/introduction"
+    - "mkdir typo3conf/ext; cp -r pagoda/ext/* typo3conf/ext/"
     - "touch typo3conf/ENABLE_INSTALL_TOOL"
     - "mkdir fileadmin/_temp_"
 db1:
