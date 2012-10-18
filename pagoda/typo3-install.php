@@ -32,7 +32,13 @@ echo 'TYPO3 v4.7.5 will now be deployed.';
 function wget($src, $dst){
 	$fp = fopen($dst, 'w');
 	$curl = curl_init();
-	$opt = array(CURLOPT_URL => $src, CURLOPT_HEADER => false, CURLOPT_FILE => $fp);
+	$opt = array(
+		CURLOPT_URL => $src,
+		CURLOPT_HEADER => false,
+		CURLOPT_FILE => $fp,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_MAXREDIRS => 3
+	);
 	curl_setopt_array($curl, $opt);
 	$rsp = curl_exec($curl);
 	if($rsp===false){
