@@ -9,11 +9,14 @@ web1:
   shared_writable_dirs:
     - fileadmin/user_upload/
     - typo3temp/
+    - typo3conf/
     - uploads/
   after_build:
     - "php pagoda/typo3-install.php"
     - "mv pagoda/introductionpackage-4.7.5/* ./"
     - "rm -R pagoda"
+  after_deploy:
+    - "touch typo3conf/ENABLE_INSTALL_TOOL"
 db1:
   name: typo3-db
   type: mysql
