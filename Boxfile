@@ -7,17 +7,20 @@ web1:
     - zip
     - gd
   shared_writable_dirs:
-    - fileadmin/user_upload/
+    - typo3/ext/
+    - fileadmin/
     - typo3temp/
     - typo3conf/
     - uploads/
   after_build:
     - "php pagoda/typo3-install.php"
-    - "mv pagoda/introductionpackage-4.7.5/* ./"
-    - "rm -R pagoda/introductionpackage-4.7.5"
+    - "cp pagoda/introductionpackage-4.7.5/* ./"
+    - "rm -R typo3/ext/introduction"
   after_deploy:
     - "touch typo3conf/ENABLE_INSTALL_TOOL"
     - "mv pagoda/localconf.php typo3conf/localconf.php"
+    - "mv pagoda/introductionpackage-4.7.5/typo3/ext/introduction/* typo3/ext/introduction/"
+    - "mkdir fileadmin/_temp_"
 db1:
   name: typo3-db
   type: mysql
