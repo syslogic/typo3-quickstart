@@ -14,9 +14,10 @@ web1:
   after_build:
     - "php pagoda/typo3-install.php"
     - "mv pagoda/introductionpackage-4.7.5/* ./"
-    - "rm -R pagoda"
+    - "rm -R pagoda/introductionpackage-4.7.5"
   after_deploy:
     - "touch typo3conf/ENABLE_INSTALL_TOOL"
+    - "mv pagoda/localconf.php typo3conf/localconf.php"
 db1:
   name: typo3-db
   type: mysql
