@@ -37,7 +37,7 @@ function wget($src, $dst){
 		CURLOPT_HEADER => false,
 		CURLOPT_FILE => $fp,
 		CURLOPT_FOLLOWLOCATION => true,
-		CURLOPT_MAXREDIRS => 3
+		CURLOPT_MAXREDIRS => 5
 	);
 	curl_setopt_array($curl, $opt);
 	$rsp = curl_exec($curl);
