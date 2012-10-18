@@ -24,6 +24,8 @@ if($zip->open($dst) === TRUE) {
 	$zip->close();
 }
 
+mkdir('pagoda/introduction');
+
 //unlink('pagoda/introductionpackage-4.7.5/_.htaccess');
 //rename('pagoda/introductionpackage-4.7.5/_.htaccess', '.htaccess');
 
