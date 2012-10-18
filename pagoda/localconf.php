@@ -12,6 +12,11 @@ $TYPO3_CONF_VARS['EXT']['extList'] = 'info,perm,func,filelist,extbase,fluid,abou
 
 $typo_db_extTableDef_script = 'extTables.php';
 
-## INSTALL SCRIPT EDIT POINT TOKEN - all lines after this points may be changed by the install script!
+/* Database Connection for Pagoda Box */
+$typo_db_username = $_SERVER['DB1_USER'];
+$typo_db_password = $_SERVER['DB1_PASS'];
+$typo_db_host = $_SERVER['DB1_HOST'];
+$typo_db_database = $_SERVER['DB1_NAME'];
 
+## INSTALL SCRIPT EDIT POINT TOKEN - all lines after this points may be changed by the install script!
 ?>
