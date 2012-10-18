@@ -6,6 +6,7 @@ web1:
     - zip
     - gd
   shared_writable_dirs:
+    - typo3conf/ext/
     - typo3/ext/
     - fileadmin/
     - typo3temp/
