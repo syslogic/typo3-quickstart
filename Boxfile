@@ -7,12 +7,12 @@ web1:
     - zip
     - gd
   shared_writable_dirs:
-    - typo3temp/
     - fileadmin/user_upload/
+    - typo3temp/
     - uploads/
   after_build:
     - "php pagoda/typo3-install.php"
-    - "mv pagoda/blankpackage-4.5.20/* ./"
+    - "mv pagoda/introductionpackage-4.7.5/* ./"
     - "rm -R pagoda"
 db1:
   name: typo3-db
