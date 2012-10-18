@@ -1,6 +1,5 @@
 web1:
   name: typo3
-  document_root: typo3
   php_extensions:
     - mysql
     - curl
