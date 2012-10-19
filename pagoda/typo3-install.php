@@ -2,7 +2,7 @@
 /*
 	TYPO3 v4.7.5
 	
-	cURL Installer for Pagoda Box v1.06
+	cURL Installer for PagodaBox v1.06
 	Copyright 2012 by Martin Zeitler
 	http://codefx.biz/contact
 */

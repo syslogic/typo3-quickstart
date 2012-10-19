@@ -2,7 +2,7 @@
 /*
 	TYPO3 v4.7.5
 	
-	Default Config File for Pagoda Box
+	Default Config File for PagodaBox
 	Copyright 2012 by Martin Zeitler
 	http://codefx.biz/contact
 */
@@ -30,10 +30,6 @@ $typo_db = $_SERVER['DB1_NAME'];
 $typo_db_username = $_SERVER['DB1_USER'];
 $typo_db_password = $_SERVER['DB1_PASS'];
 $typo_db_extTableDef_script = 'extTables.php';
-
-/* these could be predefined as well */
-$TYPO3_CONF_VARS['BE']['disable_exec_function'] = '0'
-$TYPO3_CONF_VARS['GFX']['gdlib_png'] = '0' 
 
 ## INSTALL SCRIPT EDIT POINT TOKEN - all lines after this points may be changed by the install script!
 ?>
