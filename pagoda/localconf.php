@@ -17,8 +17,9 @@ $TYPO3_CONF_VARS['SYS']['sitename'] = 'Pagoda TYPO3 Quicklaunch';
 /* the default install password is "joh316" */
 $TYPO3_CONF_VARS['BE']['installToolPassword'] = 'bacb98acf97e0b6112b1d1b650b84971';
 
-/* the base url - might require adjustment later on */
-$TYPO3_CONF_VARS['FE']['defaultTypoScript_constants'] = '[GLOBAL]'.chr(10).'myBaseUrl = http://'.$_SERVER['APP_NAME'].'.pagodabox.com';
+/* baseurl & cookie domain */
+$TYPO3_CONF_VARS['FE']['defaultTypoScript_constants'] = '[GLOBAL]'.chr(10).'myBaseUrl = http://'.$_SERVER['HTTP_HOST'];
+$TYPO3_CONF_VARS['SYS']['cookieDomain'] = $_SERVER['HTTP_HOST'];
 
 /* some typo3 extensions */
 $TYPO3_CONF_VARS['EXT']['extList'] = 'info,perm,func,filelist,extbase,fluid,about,tsconfig_help,context_help,extra_page_cm_options,impexp,sys_note,tstemplate,tstemplate_ceditor,tstemplate_info,tstemplate_objbrowser,tstemplate_analyzer,func_wizards,wizard_crpages,wizard_sortpages,lowlevel,install,belog,beuser,aboutmodules,setup,taskcenter,info_pagetsconfig,viewpage,rtehtmlarea,css_styled_content,t3skin,t3editor,reports,felogin,form,introduction';
