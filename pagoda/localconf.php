@@ -5,6 +5,9 @@
 	Default Config File for PagodaBox
 	Copyright 2012 by Martin Zeitler
 	http://codefx.biz/contact
+	
+	/typo3/install/index.php?mode=123&step=1&password=joh316
+	
 */
 
 if(!defined ('TYPO3_MODE')) {

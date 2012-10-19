@@ -17,7 +17,7 @@ web1:
     - uploads/
   after_build:
     - "php pagoda/typo3-install.php"
-    - "mv pagoda/introductionpackage-4.7.5/typo3conf/ext/* pagoda/"
+    - "mv pagoda/introductionpackage-4.7.5/typo3conf/ext/introduction pagoda/introduction"
     - "rm -R pagoda/introductionpackage-4.7.5/typo3conf/ext"
     - "mv pagoda/init.php pagoda/introductionpackage-4.7.5/typo3/init.php"
     - "mv pagoda/introductionpackage-4.7.5/* ./"
