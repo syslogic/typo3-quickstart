@@ -5,6 +5,7 @@ web1:
   php_extensions:
     - mysql
     - curl
+    - soap
     - zip
     - gd
   shared_writable_dirs:
