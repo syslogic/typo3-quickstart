@@ -1,8 +1,6 @@
 <?php
 /*
-	TYPO3 v4.7.5
-	
-	Default Config File for PagodaBox
+	Configuration of TYPO3 for PagodaBox
 	Copyright 2012 by Martin Zeitler
 	http://codefx.biz/contact
 	

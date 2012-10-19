@@ -1,13 +1,13 @@
 <?php
 /*
-	TYPO3 v4.7.5
+	TYPO3 Latest Version
 	
 	cURL Installer for PagodaBox v1.06
 	Copyright 2012 by Martin Zeitler
 	http://codefx.biz/contact
 */
 
-/* the environment */
+/* the given environment */
 $fn='introductionpackage-4.7.5.zip';
 $wd='pagoda/introductionpackage-4.7.5/';
 $src='http://sourceforge.net/projects/typo3/files/latest/download?source=files';
@@ -34,9 +34,7 @@ $files=array(
 	'typo3conf/ext/introduction/Resources/Private/Subpackages/Introduction/Database/introduction.sql'
 );
 foreach($files as $file) {
-	$contents = file_get_contents($wd.$file);
-	file_put_contents($wd.$file, preg_replace('/\sENGINE=InnoDB/', '', $contents));
-	echo basename($file)." has been patched.\n";
+	file_put_contents($wd.$file, preg_replace('/\sENGINE=InnoDB/', '', file_get_contents($wd.$file)));
 }
 
 /* enable url-rewriting */
@@ -44,7 +42,7 @@ unlink($wd.'.htaccess');
 rename($wd.'_.htaccess', '.htaccess');
 
 /* the end */
-echo 'TYPO3 v4.7.5 will now be deployed.';
+echo 'TYPO3 CMS will now be deployed.';
 
 function wget($src, $dst){
 	$fp = fopen($dst, 'w');
