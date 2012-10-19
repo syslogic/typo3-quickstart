@@ -35,14 +35,14 @@ $files=array(
 );
 foreach($files as $file) {
 	$contents = file_get_contents($wd.$file);
-	file_put_contents($wd.$file, preg_replace('/\sENGINE=InnoDB/','',$contents));
+	file_put_contents($wd.$file, preg_replace('/\sENGINE=InnoDB/', '', $contents));
 	echo basename($file)." has been patched.\n";
 }
 
 /* fix the client IP @ line 3523 */
 $file='t3lib/class.t3lib_div.php';
 $contents = file_get_contents($wd.$file);
-file_put_contents($wd.$file, preg_replace("/^\$retVal\s=\s\$_SERVER\['REMOTE_ADDR'\];$/", "$retVal = $_SERVER['HTTP_X_FORWARDED_FOR'];", $contents));
+file_put_contents($wd.$file, preg_replace("/\$retVal\s=\s\$_SERVER\['REMOTE_ADDR'\]/", "$retVal = $_SERVER['HTTP_X_FORWARDED_FOR']", $contents));
 echo basename($file)." has been patched.\n";
 
 /* the end */
