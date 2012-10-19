@@ -1,5 +1,6 @@
 web1:
   name: typo3
+  document_root: typo3
   php_post_max_size: "10M"
   php_upload_max_filesize: "10M"
   php_extensions:
