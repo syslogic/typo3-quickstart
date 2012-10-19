@@ -40,10 +40,10 @@ foreach($files as $file) {
 }
 
 /* fix the client IP @ line 3523 */
-$file='t3lib/class.t3lib_div.php';
-$contents = file_get_contents($wd.$file);
-file_put_contents($wd.$file, preg_replace('/\$retVal\s=\s\$_SERVER\[\'REMOTE_ADDR\'\];/', '$retVal = $_SERVER[\'HTTP_X_FORWARDED_FOR\'];', $contents));
-echo basename($file)." has been patched.\n";
+// $file='t3lib/class.t3lib_div.php';
+// $contents = file_get_contents($wd.$file);
+// file_put_contents($wd.$file, preg_replace('/\$retVal\s=\s\$_SERVER\[\'REMOTE_ADDR\'\];$/', '$retVal = $_SERVER[\'HTTP_X_FORWARDED_FOR\'];', $contents));
+// echo basename($file)." has been patched.\n";
 
 /* the end */
 echo 'TYPO3 v4.7.5 will now be deployed.';

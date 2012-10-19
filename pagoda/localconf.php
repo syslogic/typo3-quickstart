@@ -19,6 +19,8 @@ $TYPO3_CONF_VARS['BE']['installToolPassword'] = 'bacb98acf97e0b6112b1d1b650b8497
 
 /* baseurl & cookie domain */
 $TYPO3_CONF_VARS['FE']['defaultTypoScript_constants'] = '[GLOBAL]'.chr(10).'myBaseUrl = http://'.$_SERVER['HTTP_HOST'];
+$TYPO3_CONF_VARS['SYS']['reverseProxyIP'] = '50.97.141.37';
+$TYPO3_CONF_VARS['SYS']['reverseProxyHeaderMultiValue'] = 'last';
 $TYPO3_CONF_VARS['SYS']['cookieDomain'] = $_SERVER['HTTP_HOST'];
 
 /* some typo3 extensions */
