@@ -4,7 +4,7 @@ if (!defined ('TYPO3_MODE')) {
 }
 
 /* default site title */
-$TYPO3_CONF_VARS['SYS']['sitename'] = 'TYPO3 Quicklaunch';
+$TYPO3_CONF_VARS['SYS']['sitename'] = 'Pagoda TYPO3 Quicklaunch';
 
 /* the default install password is "pagodabox" */
 $TYPO3_CONF_VARS['BE']['installToolPassword'] = '1d61362a25730ba56966b15b49e10345';
