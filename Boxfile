@@ -18,6 +18,7 @@ web1:
     - "php pagoda/typo3-install.php"
     - "mv pagoda/introductionpackage-4.7.5/typo3conf/ext/* pagoda/ext"
     - "rm -R pagoda/introductionpackage-4.7.5/typo3conf/ext"
+    - "mv pagoda/init.php pagoda/introductionpackage-4.7.5/typo3/init.php"
     - "mv pagoda/introductionpackage-4.7.5/* ./"
   after_deploy:
     - "cp pagoda/localconf.php typo3conf/localconf.php"
