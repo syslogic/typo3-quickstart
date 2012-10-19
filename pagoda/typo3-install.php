@@ -25,10 +25,14 @@ if($zip->open($dst) === TRUE) {
 	$zip->close();
 }
 
-//unlink($wd.'.htaccess');
-//rename($wd.'_.htaccess', '.htaccess');
+/* fix the database */
 fix_syntax();
 
+/* enabling .htaccess */
+//unlink($wd.'.htaccess');
+//rename($wd.'_.htaccess', '.htaccess');
+
+/* the end */
 echo 'TYPO3 v4.7.5 will now be deployed.';
 
 function wget($src, $dst){
