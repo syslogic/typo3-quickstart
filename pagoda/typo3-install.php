@@ -25,9 +25,8 @@ if($zip->open($dst) === TRUE) {
 	$zip->close();
 }
 
-mkdir('pagoda/introduction');
-unlink($wd.'.htaccess');
-rename($wd.'_.htaccess', '.htaccess');
+//unlink($wd.'.htaccess');
+//rename($wd.'_.htaccess', '.htaccess');
 fix_syntax();
 
 echo 'TYPO3 v4.7.5 will now be deployed.';
