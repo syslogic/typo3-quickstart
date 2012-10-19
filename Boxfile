@@ -9,11 +9,11 @@ web1:
     - zip
     - gd
   shared_writable_dirs:
-    - typo3conf/ext/
     - typo3/ext/
-    - fileadmin/
+    - typo3conf/ext/
     - typo3temp/
     - typo3conf/
+    - fileadmin/
     - uploads/
   after_build:
     - "php pagoda/typo3-install.php"
@@ -22,7 +22,7 @@ web1:
     - "mv pagoda/introductionpackage-4.7.5/* ./"
   after_deploy:
     - "cp pagoda/localconf.php typo3conf/localconf.php"
-    - "mkdir typo3conf/ext; cp pagoda/introduction typo3conf/ext/introduction"
+    - "mkdir typo3conf/ext; mkdir typo3conf/ext/introduction;cp -r pagoda/introduction/* typo3conf/ext/introduction/"
     - "touch typo3conf/ENABLE_INSTALL_TOOL"
     - "mkdir fileadmin/_temp_"
 db1:
