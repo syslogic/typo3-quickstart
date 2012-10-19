@@ -13,7 +13,7 @@ $TYPO3_CONF_VARS['EXT']['extList'] = 'info,perm,func,filelist,extbase,fluid,abou
 $typo_db_extTableDef_script = 'extTables.php';
 
 /* fix for mySQL v5.5 */
-$TYPO3_CONF_VARS['SYS']['setDBinit'] = 'SET SESSION sql_mode=\'MYSQL40\';'.chr(10).'SET NAMES \'utf8\';';
+$TYPO3_CONF_VARS['SYS']['setDBinit'] = "SET SESSION sql_mode='MYSQL40';";
 
 /* Database Connection for Pagoda Box */
 $typo_db = $_SERVER['DB1_NAME'];
