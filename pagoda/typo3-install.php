@@ -72,7 +72,7 @@ function fix_syntax(){
 	foreach($files as $file) {
 		$contents = file_get_contents($wd.$file);
 		file_put_contents($wd.$file, preg_replace('/\sENGINE=InnoDB/','',$contents));
-		echo basename($file).' has been patched.';
+		echo basename($file)." has been patched.\n";
 	}
 }
 
