@@ -12,13 +12,10 @@ $fn='introductionpackage-4.7.5.zip';
 $wd='pagoda/introductionpackage-4.7.5/';
 $src='http://sourceforge.net/projects/typo3/files/latest/download?source=files';
 $base_dir = str_replace('/pagoda','', dirname(__FILE__));
-$hostname=$_SERVER['APP_NAME'].'.pagodabox.com';
 $dst=$base_dir.'/pagoda/'.$fn;
 
-/* fetch the package */
+/* fetch the package and extract it */
 wget($src, $dst);
-
-/* extract the package */
 $zip = new ZipArchive;
 if($zip->open($dst) === TRUE) {
 	$zip->extractTo(dirname(__FILE__));
@@ -26,7 +23,29 @@ if($zip->open($dst) === TRUE) {
 }
 
 /* fix the database */
-fix_syntax();
+$files=array(
+	't3lib/cache/backend/resources/dbbackend-layout-cache.sql',
+	't3lib/cache/backend/resources/dbbackend-layout-tags.sql',
+	't3lib/stddb/tables.sql',
+	'typo3/sysext/cms/ext_tables.sql',
+	'typo3/sysext/indexed_search/ext_tables.sql',
+	'typo3/sysext/openid/ext_tables.sql',
+	'typo3/sysext/openid/lib/php-openid/Auth/OpenID/MySQLStore.php',
+	'typo3conf/ext/introduction/Resources/Private/Subpackages/Introduction/Database/introduction.sql'
+);
+foreach($files as $file) {
+	$contents = file_get_contents($wd.$file);
+	file_put_contents($wd.$file, preg_replace('/\sENGINE=InnoDB/','',$contents));
+	echo basename($file)." has been patched.\n";
+}
+
+/* fix the client IP @ line 3523 */
+$file='t3lib/class.t3lib_div.php';
+$contents = file_get_contents($wd.$file);
+$pattern="/^\$retVal\s=\s\$_SERVER\['REMOTE_ADDR'\];$/";
+file_put_contents($wd.$file, preg_replace($pattern,"$retVal = $_SERVER['HTTP_X_FORWARDED_FOR'];",$contents));
+echo basename($file)." has been patched.\n";
+
 
 /* enabling .htaccess */
 //unlink($wd.'.htaccess');
@@ -57,27 +76,6 @@ function wget($src, $dst){
 	/* cURL stats */
 	$time = $info['total_time']-$info['namelookup_time']-$info['connect_time']-$info['pretransfer_time']-$info['starttransfer_time']-$info['redirect_time'];
 	echo "Fetched '$src' @ ".abs(round(($info['size_download']*8/$time/1024/1024),2))."MBit/s.\n";
-}
-
-function fix_syntax(){
-	
-	global $wd;
-	$files=array(
-		't3lib/cache/backend/resources/dbbackend-layout-cache.sql',
-		't3lib/cache/backend/resources/dbbackend-layout-tags.sql',
-		't3lib/stddb/tables.sql',
-		'typo3/sysext/cms/ext_tables.sql',
-		'typo3/sysext/indexed_search/ext_tables.sql',
-		'typo3/sysext/openid/ext_tables.sql',
-		'typo3/sysext/openid/lib/php-openid/Auth/OpenID/MySQLStore.php',
-		'typo3conf/ext/introduction/Resources/Private/Subpackages/Introduction/Database/introduction.sql'
-	);
-	
-	foreach($files as $file) {
-		$contents = file_get_contents($wd.$file);
-		file_put_contents($wd.$file, preg_replace('/\sENGINE=InnoDB/','',$contents));
-		echo basename($file)." has been patched.\n";
-	}
 }
 
 function format_size($size=0) {
