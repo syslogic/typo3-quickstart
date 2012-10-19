@@ -22,7 +22,7 @@ if($zip->open($dst) === TRUE) {
 	$zip->close();
 }
 
-/* fix the database */
+/* mySQL 5.5 syntax is required to install */
 $files=array(
 	't3lib/cache/backend/resources/dbbackend-layout-cache.sql',
 	't3lib/cache/backend/resources/dbbackend-layout-tags.sql',
