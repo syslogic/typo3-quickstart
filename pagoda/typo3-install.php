@@ -8,8 +8,9 @@
 */
 
 /* the given environment */
-$fn='introductionpackage-4.7.5.zip';
-$wd='pagoda/introductionpackage-4.7.5/';
+$version='4.7.5';
+$fn='introductionpackage-'.$version.'.zip';
+$wd='pagoda/introductionpackage-'.$version.'/';
 $src='http://sourceforge.net/projects/typo3/files/latest/download?source=files';
 $base_dir = str_replace('/pagoda','', dirname(__FILE__));
 $dst=$base_dir.'/pagoda/'.$fn;
@@ -22,7 +23,7 @@ if($zip->open($dst) === TRUE) {
 	$zip->close();
 }
 
-/* patching to mySQL 5.5 syntax */
+/* patching to mySQL v5.5 syntax */
 $files=array(
 	't3lib/cache/backend/resources/dbbackend-layout-cache.sql',
 	't3lib/cache/backend/resources/dbbackend-layout-tags.sql',
@@ -42,7 +43,7 @@ unlink($wd.'.htaccess');
 rename($wd.'_.htaccess', '.htaccess');
 
 /* the end */
-echo 'TYPO3 CMS will now be deployed.';
+echo 'TYPO3 v'.$version.' will now be deployed.';
 
 function wget($src, $dst){
 	$fp = fopen($dst, 'w');

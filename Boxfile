@@ -11,8 +11,8 @@ web1:
   shared_writable_dirs:
     - typo3/ext/
     - typo3conf/ext/
-    - typo3temp/
     - typo3conf/
+    - typo3temp/
     - fileadmin/
     - uploads/
   after_build:
