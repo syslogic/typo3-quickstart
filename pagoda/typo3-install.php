@@ -46,11 +46,6 @@ $pattern="/^\$retVal\s=\s\$_SERVER\['REMOTE_ADDR'\];$/";
 file_put_contents($wd.$file, preg_replace($pattern,"$retVal = $_SERVER['HTTP_X_FORWARDED_FOR'];",$contents));
 echo basename($file)." has been patched.\n";
 
-
-/* enabling .htaccess */
-//unlink($wd.'.htaccess');
-//rename($wd.'_.htaccess', '.htaccess');
-
 /* the end */
 echo 'TYPO3 v4.7.5 will now be deployed.';
 
