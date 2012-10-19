@@ -42,8 +42,7 @@ foreach($files as $file) {
 /* fix the client IP @ line 3523 */
 $file='t3lib/class.t3lib_div.php';
 $contents = file_get_contents($wd.$file);
-$pattern="/^\$retVal\s=\s\$_SERVER\['REMOTE_ADDR'\];$/";
-file_put_contents($wd.$file, preg_replace($pattern,"$retVal = $_SERVER['HTTP_X_FORWARDED_FOR'];",$contents));
+file_put_contents($wd.$file, preg_replace("/^\$retVal\s=\s\$_SERVER\['REMOTE_ADDR'\];$/", "$retVal = $_SERVER['HTTP_X_FORWARDED_FOR'];", $contents));
 echo basename($file)." has been patched.\n";
 
 /* the end */
