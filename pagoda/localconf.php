@@ -14,9 +14,9 @@ $typo_db_extTableDef_script = 'extTables.php';
 
 /* Database Connection for Pagoda Box */
 $typo_db = $_SERVER['DB1_NAME'];
-// $typo_db_username = $_SERVER['DB1_USER'];
-// $typo_db_password = $_SERVER['DB1_PASS'];
-// $typo_db_host = $_SERVER['DB1_HOST'];
+$typo_db_username = $_SERVER['DB1_USER'];
+$typo_db_password = $_SERVER['DB1_PASS'];
+$typo_db_host = $_SERVER['DB1_HOST'];
 
 ## INSTALL SCRIPT EDIT POINT TOKEN - all lines after this points may be changed by the install script!
 ?>
